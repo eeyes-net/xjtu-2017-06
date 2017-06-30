@@ -7,7 +7,6 @@ use think\Session;
 
 class Index extends Controller
 {
-
     protected $beforeActionList = [
         'isLogin' => ['except' => ['loginForm', 'login']],
     ];
@@ -43,24 +42,24 @@ class Index extends Controller
         return view();
     }
 
-    public function edit($name)
+    public function edit($type, $name)
     {
-        $file = config('html.path') . DS . 'index' . DS . $name . '.html';
+        $file = config('html.path') . DS . $type . DS . $name . '.html';
         if (!file_exists($file)) {
-            return response('', 404);
+            $this->error('文件不存在');
         }
         $content = file_get_contents($file);
         return view('', compact('content'));
     }
 
-    public function update($name)
+    public function update($type, $name)
     {
-        $file = config('html.path') . DS . 'index' . DS . $name . '.html';
+        $file = config('html.path') . DS . $type . DS . $name . '.html';
         if (!file_exists($file)) {
-            return response('', 404);
+            $this->error('文件不存在');
         }
         $content = request()->put('content');
         file_put_contents($file, $content);
-        return redirect($_SERVER['HTTP_REFERER']);
+        $this->success('文件保存成功');
     }
 }
