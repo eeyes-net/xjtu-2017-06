@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <script src="/static/dist/ueditor/ueditor.config.js"></script>
+    <script src="/static/dist/ueditor/ueditor.all.min.js"></script>
+    <script src="/static/dist/ueditor/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+    <form method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <script id="editor" name="content" type="text/plain" style="width: 1024px; height: 500px;">{$content}</script>
+        <input type="submit" value="保存">
+    </form>
+    <script>
+        var ue = UE.getEditor('editor');
+    </script>
+</body>
+</html>
