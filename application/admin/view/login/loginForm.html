@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录起航交大后台管理</title>
+    <link rel="stylesheet" href="/static/dist/css/bulma.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <div class="box">
+                <h1 class="title has-text-centered">登录起航交大后台管理</h1>
+                {if ( session('?login_failed'))}
+                <div class="notification is-danger">
+                    用户名或密码错误
+                </div>
+                {/if}
+                <form method="POST">
+                    <div class="field">
+                        <label class="label">用户名</label>
+                        <p class="control">
+                            <input class="input" type="text" name="username"{if ( session('?username'))}value="{:session('username')}"{/if}>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <p class="control">
+                            <input class="input" type="password" name="password">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <button class="button is-primary">登录</button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

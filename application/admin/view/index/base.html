@@ -30,6 +30,11 @@
             </aside>
         </div>
         <div class="column">
+            {if (session('?save_ok'))}
+            <div class="notification is-success">
+                {:session('save_ok')}
+            </div>
+            {/if}
             {block name="main"}{/block}
         </div>
     </div>
