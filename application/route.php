@@ -10,5 +10,10 @@ Route::group('admin', function () {
     Route::put(':type/:name', 'admin/Index/update');
 });
 
+Route::group('mobile', function () {
+    Route::get('/', 'index/Mobile/index');
+    Route::get(':name', 'index/Mobile/read');
+});
+
 Route::get('/', 'index/Index/index');
 Route::get(':name', 'index/Index/read');

@@ -1,7 +1,7 @@
 <!-- TODO index page -->
 <ul>
-    {foreach ( config('html.list')['index'] as $name)}
-    <li><a href="{:url('index/Index/read', ['name' => $name])}">{:ucfirst($name)}</a></li>
+    {foreach ( config('html.list')['mobile'] as $name)}
+    <li><a href="{:url('index/Mobile/read', ['name' => $name])}">{:ucfirst($name)}</a></li>
     {/foreach}
 </ul>
 <div class="content"></div>
