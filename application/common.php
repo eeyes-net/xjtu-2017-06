@@ -10,3 +10,13 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+
+function is_html_available($type, $name)
+{
+    return in_array($type, ['index', 'mobile'])
+        && in_array($name, config('html.list')[$type]);
+}
+
+function get_html_path($type, $name) {
+    return config('html.path') . DS . $type . DS . $name . '.html';
+}

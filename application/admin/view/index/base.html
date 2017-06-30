@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="/static/dist/css/bulma.min.css">
+    {block name="head_append"}{/block}
+</head>
+<body>
+    <div class="columns is-desktop">
+        <div class="column is-2">
+            <aside class="menu">
+                <?php $list = config('html.list'); ?>
+                <p class="menu-label">
+                    PC端
+                </p>
+                <ul class="menu-list">
+                    {foreach ($list['index'] as $name)}
+                    <li><a href="{:url('admin/Index/edit', ['type' => 'index', 'name' => $name])}">{:ucfirst($name)}</a></li>
+                    {/foreach}
+                </ul>
+                <p class="menu-label">
+                    移动端
+                </p>
+                <ul class="menu-list">
+                    {foreach ($list['mobile'] as $name)}
+                    <li><a href="{:url('admin/Index/edit', ['type' => 'mobile', 'name' => $name])}">{:ucfirst($name)}</a></li>
+                    {/foreach}
+                </ul>
+            </aside>
+        </div>
+        <div class="column">
+            {block name="main"}{/block}
+        </div>
+    </div>
+    {block name="body_append"}{/block}
+</body>
+</html>
+

@@ -39,25 +39,25 @@ class Index extends Controller
 
     public function index()
     {
-        return view();
+        return view('base');
     }
 
     public function edit($type, $name)
     {
-        $file = config('html.path') . DS . $type . DS . $name . '.html';
-        if (!file_exists($file)) {
+        if (!is_html_available($type, $name)) {
             $this->error('文件不存在');
         }
-        $content = file_get_contents($file);
+        $file = get_html_path($type, $name);
+        $content = file_exists($file) ? file_get_contents($file) : '';
         return view('', compact('content'));
     }
 
     public function update($type, $name)
     {
-        $file = config('html.path') . DS . $type . DS . $name . '.html';
-        if (!file_exists($file)) {
+        if (!is_html_available($type, $name)) {
             $this->error('文件不存在');
         }
+        $file = get_html_path($type, $name);
         $content = request()->put('content');
         file_put_contents($file, $content);
         $this->success('文件保存成功');
