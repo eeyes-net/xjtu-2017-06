@@ -9,27 +9,32 @@
 <body>
     <div class="columns is-desktop">
         <div class="column is-2">
-            <aside class="menu">
-                <?php $list = config('html.list'); ?>
-                <p class="menu-label">
-                    PC端
-                </p>
-                <ul class="menu-list">
-                    {foreach ($list['index'] as $name)}
-                    <li><a href="{:url('admin/Index/edit', ['type' => 'index', 'name' => $name])}">{:ucfirst($name)}</a></li>
-                    {/foreach}
-                </ul>
-                <p class="menu-label">
-                    移动端
-                </p>
-                <ul class="menu-list">
-                    {foreach ($list['mobile'] as $name)}
-                    <li><a href="{:url('admin/Index/edit', ['type' => 'mobile', 'name' => $name])}">{:ucfirst($name)}</a></li>
-                    {/foreach}
-                </ul>
-            </aside>
+            <div class="box">
+                <aside class="menu">
+                    <?php $list = config('html.list'); ?>
+                    <p class="menu-label">
+                        PC端
+                    </p>
+                    <ul class="menu-list">
+                        {foreach ($list['index'] as $name)}
+                        <li><a href="{:url('admin/Index/edit', ['type' => 'index', 'name' => $name])}">{:ucfirst($name)}</a></li>
+                        {/foreach}
+                    </ul>
+                    <p class="menu-label">
+                        移动端
+                    </p>
+                    <ul class="menu-list">
+                        {foreach ($list['mobile'] as $name)}
+                        <li><a href="{:url('admin/Index/edit', ['type' => 'mobile', 'name' => $name])}">{:ucfirst($name)}</a></li>
+                        {/foreach}
+                    </ul>
+                </aside>
+            </div>
         </div>
         <div class="column">
+            <h1 class="title">
+                {block name="title"}请从左侧列表选择文章编辑{/block}
+            </h1>
             {if (session('?save_ok'))}
             <div class="notification is-success">
                 {:session('save_ok')}
