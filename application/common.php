@@ -14,7 +14,7 @@
 function is_html_available($type, $name)
 {
     return in_array($type, ['index', 'mobile'])
-        && in_array($name, config('html.list')[$type]);
+        && in_array($name, array_keys(config('html.list')[$type]));
 }
 
 function get_html_path($type, $name)

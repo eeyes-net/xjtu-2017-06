@@ -31,8 +31,8 @@ class Index extends Controller
         }
         $file = get_html_path($type, $name);
         $content = file_exists($file) ? file_get_contents($file) : '';
-        $title = ($type === 'mobile') ? '移动端' : 'PC端' . ' / ' . $name;
-        return view('', compact('title', 'content'));
+        $title = ($type === 'mobile') ? '移动端' : 'PC端' . ' / ' . config('html.list')[$type][$name];
+        return view('', compact('title', 'content', 'type', 'name'));
     }
 
     public function update($type, $name)

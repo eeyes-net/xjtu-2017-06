@@ -1,39 +1,10 @@
 <?php
 
+$data = include dirname(dirname(__FILE__)) . '/common/data/data.php';
+
 return [
     'path' => ROOT_PATH . 'storage' . DS . 'html',
-    'list' => [
-        'index' => [
-            'introduction',
-            'pengkang',
-            'nanyang',
-            'zhongying',
-            'lizhi',
-            'chongshi',
-            'wenzhi',
-            'qide',
-            'zonglian',
-            'transport',
-            'register',
-            'lifestyle',
-            'campus',
-            'about',
-        ],
-        'mobile' => [
-            'introduction',
-            'pengkang',
-            'nanyang',
-            'zhongying',
-            'lizhi',
-            'chongshi',
-            'wenzhi',
-            'qide',
-            'zonglian',
-            'transport',
-            'register',
-            'lifestyle',
-            'campus',
-            'about',
-        ],
-    ],
+    'list' =>  $data['list'],
+    'menu' => $data['menu'],
+    'colleges' => $data['colleges'],
 ];

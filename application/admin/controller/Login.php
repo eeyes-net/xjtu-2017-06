@@ -9,7 +9,7 @@ use think\Session;
 class Login extends Controller
 {
     protected $beforeActionList = [
-        'mustGuest',
+        'mustGuest' => ['except' => 'logout'],
     ];
 
     protected function mustGuest()
@@ -38,5 +38,11 @@ class Login extends Controller
             Session::flash('username', $username);
             return redirect($_SERVER['HTTP_REFERER']);
         }
+    }
+
+    public function logout()
+    {
+        Session::delete('is_login');
+        return redirect(url('admin/Login/loginForm'));
     }
 }

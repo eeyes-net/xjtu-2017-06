@@ -16,17 +16,23 @@
                         PC端
                     </p>
                     <ul class="menu-list">
-                        {foreach ($list['index'] as $name)}
-                        <li><a href="{:url('admin/Index/edit', ['type' => 'index', 'name' => $name])}">{:ucfirst($name)}</a></li>
+                        {foreach ($list['index'] as $name1 => $text)}
+                        <li><a href="{:url('admin/Index/edit', ['type' => 'index', 'name' => $name1])}"{if (isset($name) && $type === 'index' && $name1 === $name)} class="is-active"{/if}>{$text}</a></li>
                         {/foreach}
                     </ul>
                     <p class="menu-label">
                         移动端
                     </p>
                     <ul class="menu-list">
-                        {foreach ($list['mobile'] as $name)}
-                        <li><a href="{:url('admin/Index/edit', ['type' => 'mobile', 'name' => $name])}">{:ucfirst($name)}</a></li>
+                        {foreach ($list['mobile'] as $name1 => $text)}
+                        <li><a href="{:url('admin/Index/edit', ['type' => 'mobile', 'name' => $name1])}"{if (isset($name) && $type === 'mobile' && $name1 === $name)} class="is-active"{/if}>{$text}</a></li>
                         {/foreach}
+                    </ul>
+                    <p class="menu-label">
+                        账户操作
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="{:url('admin/Login/logout')}">退出登录</a></li>
                     </ul>
                 </aside>
             </div>
