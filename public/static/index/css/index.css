@@ -122,21 +122,12 @@ a {
 /* sidebar-header */
 
 .sidebar-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 30%;
-    font-size: 0;
-    text-align: center;
+    height: 30vh;
 }
 
 .xjtu-start-here-logo {
-    position: absolute;
-    top: 50%;
-    margin-top: -20%;
-    width: 100%;
-    height: 50%;
+    padding: 7.5vh 0;
+    height: 15vh;
     text-align: center;
 }
 
@@ -159,11 +150,7 @@ a {
 /* sidebar-body */
 
 .sidebar-body {
-    position: absolute;
-    left: 0;
-    top: 30%;
-    right: 0;
-    height: 60%;
+    height: 60vh;
 }
 
 .menu-ul {
@@ -198,15 +185,12 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 10%;
-}
-
-.eeyes-logo-container {
-    height: 100%;
+    height: 10vh;
 }
 
 .eeyes-logo {
-    height: 100%;
+    margin: 3vh 5% 2vh;
+    height: 5vh;
 }
 
 .eeyes-logo img {
