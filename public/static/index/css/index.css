@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*border: 1px solid;*/
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    background-color: #ecf0f1;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* main */
+
+.main {
+    padding-left: 20%;
+}
+
+/* main-header */
+
+.main-header {
+    width: 100%;
+    height: 30vh;
+    /*background-color: #014b93*/
+}
+
+.main-header-img {
+    width: 100%;
+    height: 100%;
+}
+
+.main-header-colleges {
+    height: 100%;
+}
+
+.main-header-colleges-ul {
+    height: 100%;
+    font-size: 0;
+    text-align: center;
+}
+
+.main-header-colleges-li {
+    display: inline-block;
+    height: 100%;
+    width: 11%;
+    font-size: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.main-header-college {
+    padding: 30% 0 0;
+    height: 100%;
+    box-sizing: border-box;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-duration: .2s;
+}
+
+.main-header-college.active, .main-header-college:hover {
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.main-header-college-image {
+    width: 50%;
+    height: 50%;
+}
+
+.main-header-college-text {
+    margin: .5em auto;
+    width: 90%;
+    height: 2em;
+    color: #fff;
+    background-color: #e84c3d;
+    font-size: .8rem;
+    line-height: 2em;
+    text-align: center;
+    border-radius: .5em;
+}
+
+/* main-content */
+
+.main-content {
+    padding: 0 14.5%;
+}
+
+/* sidebar */
+
+.sidebar {
+    position: fixed;
+    width: 20%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #2980b9;
+    background-image: url(../images/sidebar-bg.png);
+    background-size: cover;
+}
+
+/* sidebar-header */
+
+.sidebar-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    font-size: 0;
+    text-align: center;
+}
+
+.xjtu-start-here-logo {
+    position: absolute;
+    top: 50%;
+    margin-top: -20%;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+}
+
+.xjtu-start-here-logo img {
+    height: 100%;
+}
+
+.xjtu-start-here-logo img:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition-duration: .4s;
+    -moz-transition-duration: .4s;
+    -o-transition-duration: .4s;
+    transition-duration: .4s;
+}
+
+/* sidebar-body */
+
+.sidebar-body {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    right: 0;
+    height: 60%;
+}
+
+.menu-ul {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.menu-li {
+    flex: 1;
+    overflow: hidden;
+}
+
+.menu-li a {
+    display: block;
+    text-align: center;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-duration: .2s;
+}
+
+.menu-li a.active, .menu-li a:hover {
+    color: #595959;
+    background-color: #ecf0f1;
+}
+
+/* sidebar-footer */
+
+.sidebar-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10%;
+}
+
+.eeyes-logo-container {
+    height: 100%;
+}
+
+.eeyes-logo {
+    height: 100%;
+}
+
+.eeyes-logo img {
+    height: 100%;
+}

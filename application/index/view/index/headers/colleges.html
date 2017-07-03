@@ -1,0 +1,12 @@
+<ul class="main-header-colleges-ul">
+    {foreach ( config('html.colleges') as $name1 => $text)}
+    <li class="main-header-colleges-li">
+        <a data-pjax href="/{$name1}.html">
+            <div class="main-header-college{if ($name1 === $name)} active{/if}">
+                <img class="main-header-college-image" src="/static/index/images/college-logo/{$name1}.png" alt="{$text}书院logo">
+                <p class="main-header-college-text">{$text}书院</p>
+            </div>
+        </a>
+    </li>
+    {/foreach}
+</ul>

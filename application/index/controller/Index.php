@@ -9,7 +9,7 @@ class Index
         if (is_mobile()) {
             return redirect(url('index/Mobile/index'));
         }
-        return view();
+        return redirect(url('index/Index/read', ['name' => 'introduction']));
     }
 
     public function read($name)
@@ -20,8 +20,8 @@ class Index
         $file = get_html_path('index', $name);
         $content = file_exists($file) ? file_get_contents($file) : '';
         if (request()->isPjax()) {
-            return response()->content($content ?: ' ');
+            return view('pjax', compact('name', 'content'));
         }
-        return view('', compact('content'));
+        return view('read', compact('name', 'content'));
     }
 }
