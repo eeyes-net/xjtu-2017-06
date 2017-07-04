@@ -38,7 +38,7 @@ return [
     'menu' => [
         'introduction' => '交大介绍',
         'campus' => '魅力交大',
-        'pengkang' => '八大书院',
+        'college' => '八大书院',
         'transport' => '交通路线',
         'register' => '报道那天',
         'lifestyle' => '消费主张',

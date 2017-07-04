@@ -9,11 +9,14 @@ class Index
         if (is_mobile()) {
             return redirect(url('index/Mobile/index'));
         }
-        return redirect(url('index/Index/read', ['name' => 'introduction']));
+        return $this->read('introduction');
     }
 
     public function read($name)
     {
+        if ($name === 'college') {
+            return $this->read('pengkang');
+        }
         if (!is_html_available('index', $name)) {
             return response('', 404);
         }

@@ -22,7 +22,7 @@
             <ul class="menu-ul">
                 {foreach ( config('html.menu') as $name1 => $text)}
                 <li class="menu-li">
-                    <a data-pjax href="/{$name1}.html"{if ($name1 === $name || ($name1 === 'pengkang' && in_array($name, array_keys(config('html.colleges')))))} class="active"{/if}>{$text}</a>
+                    <a data-pjax href="/{$name1}.html"{if ($name1 === $name || ($name1 === 'college' && in_array($name, array_merge(array_keys(config('html.colleges')), ['college']))))} class="active"{/if}>{$text}</a>
                 </li>
                 {/foreach}
             </ul>
