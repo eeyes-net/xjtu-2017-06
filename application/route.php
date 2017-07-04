@@ -12,8 +12,9 @@ Route::group('admin', function () {
 });
 
 Route::group('mobile', function () {
-    Route::get('/', 'index/Mobile/index');
-    Route::get(':name', 'index/Mobile/read');
+    Route::get('/', 'mobile/Index/index');
+    Route::get('colleges', 'mobile/Index/colleges');
+    Route::get(':name', 'mobile/Index/read');
 });
 
 Route::get('/', 'index/Index/index');

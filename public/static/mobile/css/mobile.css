@@ -1,0 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+/* header */
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 50px;
+    background-color: #3499db;
+    z-index: 1000;
+}
+
+.header-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.header-left .header-icon {
+    width: 12px;
+}
+
+.header-center {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    text-align: center;
+}
+
+.header-center .header-icon {
+    width: 65px;
+}
+
+.header-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+}
+
+.header-right .header-icon {
+    width: 37px;
+}
+
+.header-icon-container {
+    height: 50px;
+    box-sizing: border-box;
+    padding: 14px;
+}
+
+.header-icon {
+    height: 22px;
+}
+
+/* sidebar */
+
+.sidebar {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+}
+
+.sidebar.active {
+    display: block;
+}
+
+.sidebar-bg {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.sidebar.active .sidebar-bg {
+    display: block;
+}
+
+.sidebar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 17em;
+    background-color: #eaf1f5;
+    box-shadow: -2px 0 2px rgba(0, 0, 0, .15);
+    overflow: auto;
+    -webkit-transition: -webkit-transform 300ms ease;
+    -moz-transition: -moz-transform 300ms ease;
+    -ms-transition: -ms-transform .5s;
+    -o-transition: -o-transform .5s;
+    transition: transform 300ms ease;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    -o-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+
+.sidebar.active .sidebar-wrapper {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* sidebar-header */
+
+.sidebar-header, .sidebar-body {
+    background-color: #349ab3;
+}
+
+.sidebar-brand {
+    padding: 1em 0;
+    text-align: center;
+}
+
+.sidebar-brand-img {
+    width: 5em;
+    height: 5em;
+}
+
+/* sidebar-body */
+
+.menu-li {
+    padding: .6em 0;
+    font-size: 1.13em;
+    text-align: center;
+}
+
+.menu-li:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+/* sidebar-footer */
+
+.sidebar-footer {
+    padding: 1em 0 2em;
+}
+
+/* sidebar-footer qrcode */
+
+.qrcode-container {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 0;
+    text-align: center;
+}
+
+.qrcode {
+    display: inline-block;
+    width: 50%;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: top;
+    background-color: #ecf0f1;
+    font-size: 1rem;
+}
+
+.qrcode-img {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.qrcode-text {
+    margin-top: .5em;
+    color: #777;
+    font-size: .8em;
+}
+
+/* sidebar-footer sponsor */
+
+.sponsor-ul {
+    margin-top: 1em;
+}
+
+.sponsor-li {
+    text-align: center;
+    color: #2290a8;
+    margin-top: .3em;
+}
+
+.sponsor-li * {
+    vertical-align: middle;
+}
+
+.sponsor-text {
+    margin-right: .3em;
+    font-size: .8em;
+}
+
+/* main */
+
+.main {
+    padding: 50px 1em 0;
+}
+
+.main img {
+    max-width: 100% !important;
+}
+
+/* main-content-colleges */
+
+.main-content-colleges-ul {
+    margin: 0 -1em;
+}
+
+.main-content-college-li {
+    margin-top: .5em;
+    padding: .5em;
+    background: #fff;
+}
+
+.main-content-college {
+    position: relative;
+}
+
+.main-content-college-logo {
+    padding: 1.5em 0;
+    width: 8em;
+    height: 8em;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.main-content-college-logo-img {
+    height: 100%;
+}
+
+.main-content-college-body {
+    position: absolute;
+    left: 8em;
+    top: 0;
+    right: 0;
+}
+
+.main-content-college-title {
+    padding-bottom: .5em;
+    height: 1.5em;
+    color: #516a7a;
+    font-size: 1.25em;
+    border-bottom: 2px solid #ddd;;
+}
+
+.main-content-college-text {
+    padding: .5em 0;
+    height: 3em;
+    color: #6c8493;
+    font-size: .75em;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+.main-content-college-link {
+    color: #ff7917;
+    font-size: .75em;
+}
+
+.main-content-college-link:hover {
+    color: #059;
+}
+
+.main-content-college-link:visited {
+    color: #9f6592;
+}

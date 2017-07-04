@@ -2,12 +2,17 @@
 
 namespace app\index\controller;
 
+use think\Cookie;
+
 class Index
 {
     public function index()
     {
-        if (is_mobile()) {
-            return redirect(url('index/Mobile/index'));
+        if (is_mobile() && !Cookie::get('redirected')) {
+            Cookie::set('redirected', true, [
+                'expire' => '300',
+            ]);
+            return redirect(url('mobile/Index/index'));
         }
         return $this->read('introduction');
     }
