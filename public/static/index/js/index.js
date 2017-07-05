@@ -11,7 +11,7 @@
     resize();
     $(window).resize(resize);
 
-    $(document).pjax('a[data-pjax]', '.main', {});
+    $(document).pjax('a[data-pjax]', '.main');
 
     $(document).on('pjax:clicked', function(data) {
         var $a = $(data.target);

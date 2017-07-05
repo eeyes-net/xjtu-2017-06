@@ -7,15 +7,16 @@ Route::group('admin', function () {
     Route::post('login', 'admin/Login/login');
     Route::any('logout', 'admin/Login/logout');
     Route::get('/', 'admin/Index/index');
-    Route::get(':type/:name', 'admin/Index/edit');
-    Route::put(':type/:name', 'admin/Index/update');
+    Route::get(':type_id/:id', 'admin/Index/edit');
+    Route::put(':type_id/:id', 'admin/Index/update');
 });
 
 Route::group('mobile', function () {
-    Route::get('/', 'mobile/Index/index');
     Route::get('colleges', 'mobile/Index/colleges');
-    Route::get(':name', 'mobile/Index/read');
+    Route::get('/', 'mobile/Index/index');
+    Route::get(':id', 'mobile/Index/read');
 });
 
+Route::get('colleges', 'index/Index/colleges');
 Route::get('/', 'index/Index/index');
-Route::get(':name', 'index/Index/read');
+Route::get(':id', 'index/Index/read');

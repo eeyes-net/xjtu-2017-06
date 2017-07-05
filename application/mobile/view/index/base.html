@@ -6,6 +6,7 @@
     <title>起航交大</title>
     <link rel="stylesheet" href="/static/mobile/css/mobile.css">
     <link rel="stylesheet" href="/static/common/css/eeyes_common.css">
+    <link rel="stylesheet" href="/static/dist/css/swiper-3.4.2.min.css">
 </head>
 <body>
     <header class="header">
@@ -17,7 +18,7 @@
             </a>
         </div>
         <div class="header-center">
-            <a data-pjax href="/mobile/">
+            <a data-pjax href="{:url('mobile/Index/index')}">
                 <div class="header-icon-container">
                     <img class="header-icon" src="/static/mobile/images/icon/eeyes.png" alt="e瞳网logo">
                 </div>
@@ -35,7 +36,7 @@
         <div class="sidebar-bg"></div>
         <div class="sidebar-wrapper">
             <div class="sidebar-header">
-                <a href="/mobile/">
+                <a data-pjax href="{:url('mobile/Index/index')}">
                     <div class="sidebar-brand">
                         <img class="sidebar-brand-img" src="/static/index/images/logo/xjtu-start-here.png" alt="起航交大logo">
                     </div>
@@ -43,12 +44,12 @@
             </div>
             <div class="sidebar-body">
                 <ul class="menu-ul">
-                    <li class="menu-li"><a data-pjax href="/mobile/introduction.html">交大介绍</a></li>
-                    <li class="menu-li"><a data-pjax href="/mobile/campus.html">魅力交大</a></li>
-                    <li class="menu-li"><a data-pjax href="/mobile/colleges.html">八大书院</a></li>
-                    <li class="menu-li"><a data-pjax href="/mobile/transport.html">交通路线</a></li>
-                    <li class="menu-li"><a data-pjax href="/mobile/register.html">报到那天</a></li>
-                    <li class="menu-li"><a data-pjax href="/mobile/lifestyle.html">新生攻略</a></li>
+                    <?php $menu = config('data.menu_mobile'); ?>
+                    {foreach ($menu as $id => $name)}
+                    <li class="menu-li">
+                        <a data-pjax href="{:url('mobile/Index/read', ['id' => $id])}">{$name}</a>
+                    </li>
+                    {/foreach}
                 </ul>
             </div>
             <div class="sidebar-footer">
@@ -78,11 +79,13 @@
     <div class="main">
         {block name="main"}{/block}
     </div>
-    <footer>
+    <footer class="footer">
         {include file="common@common/eeyes_common_footer" /}
     </footer>
     <script src="/static/dist/js/jquery-3.1.1.min.js"></script>
     <script src="/static/dist/js/jquery.pjax.min.js"></script>
+    <script src="/static/dist/js/swiper-3.4.2.jquery.min.js"></script>
+    <script src="/static/dist/js/jquery.lazyload.min.js"></script>
     <script src="/static/mobile/js/mobile.js"></script>
 </body>
 </html>

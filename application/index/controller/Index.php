@@ -2,6 +2,7 @@
 
 namespace app\index\controller;
 
+use app\common\model\Post;
 use think\Cookie;
 
 class Index
@@ -14,22 +15,23 @@ class Index
             ]);
             return redirect(url('mobile/Index/index'));
         }
-        return $this->read('introduction');
+        return $this->read(array_keys(config('data.menu_index'))[0]);
     }
 
-    public function read($name)
+    public function read($id)
     {
-        if ($name === 'college') {
-            return $this->read('pengkang');
-        }
-        if (!is_html_available('index', $name)) {
+        $post = Post::get('index', $id);
+        if (!$post) {
             return response('', 404);
         }
-        $file = get_html_path('index', $name);
-        $content = file_exists($file) ? file_get_contents($file) : '';
         if (request()->isPjax()) {
-            return view('pjax', compact('name', 'content'));
+            return view('pjax', compact('post'));
         }
-        return view('read', compact('name', 'content'));
+        return view('read', compact('post'));
+    }
+
+    public function colleges()
+    {
+        return $this->read(Post::allCollegeOfType('index')[0]->id);
     }
 }
