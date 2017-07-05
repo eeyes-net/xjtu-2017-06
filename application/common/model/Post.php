@@ -100,7 +100,7 @@ class Post
 
     public function save()
     {
-        return file_put_contents($this->getFilePath(), $this->content);
+        return file_put_contents_auto_mkdir($this->getFilePath(), $this->content);
     }
 
     public function isCollege()

@@ -33,3 +33,21 @@ function html_to_text($html)
 {
     return trim(preg_replace('/[\s\0\x0B\xC2\xA0]+/su', ' ', html_entity_decode(preg_replace('/<.*?>/su', ' ', $html))));
 }
+
+/**
+ * 写入文件，如果文件夹不存在则自动创建文件夹
+ *
+ * @return bool|int 成功返回写入字节数，失败返回false
+ * @throws Exception 创建文件夹失败则抛出异常
+ */
+function file_put_contents_auto_mkdir($filename, $data, $flags = 0, $context = null)
+{
+    $file_dir = dirname($filename);
+    if (!is_dir($file_dir)) {
+        $result = mkdir($file_dir, 0777, true);
+        if (!$result) {
+            throw new \Exception('mkdir failed');
+        }
+    }
+    return file_put_contents($filename, $data, $flags = 0, $context = null);
+}
