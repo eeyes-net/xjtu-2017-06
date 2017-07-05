@@ -153,13 +153,17 @@ body {
 /* sidebar-body */
 
 .menu-li {
-    padding: .6em 0;
-    font-size: 1.13em;
     text-align: center;
 }
 
 .menu-li:hover {
     background-color: rgba(0, 0, 0, .1);
+}
+
+.menu-li a {
+    display: block;
+    padding: .6em 0;
+    font-size: 1.13em;
 }
 
 /* sidebar-footer */
