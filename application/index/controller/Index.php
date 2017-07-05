@@ -13,7 +13,7 @@ class Index
             Cookie::set('redirected', true, [
                 'expire' => '300',
             ]);
-            return redirect(url('mobile/Index/index'));
+            return redirect('mobile/Index/index');
         }
         return $this->read(array_keys(config('data.menu_index'))[0]);
     }

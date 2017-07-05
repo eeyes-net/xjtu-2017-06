@@ -15,7 +15,7 @@ class Login extends Controller
     protected function mustGuest()
     {
         if (Session::get('is_login')) {
-            throw new HttpResponseException(redirect(url('admin/Index/index')));
+            throw new HttpResponseException(redirect('admin/Index/index'));
         }
     }
 
@@ -32,7 +32,7 @@ class Login extends Controller
             && $password === config('admin.password')
         ) {
             Session::set('is_login', 'true');
-            return redirect(url('admin/Index/index'));
+            return redirect('admin/Index/index');
         } else {
             Session::flash('login_failed', true);
             Session::flash('username', $username);
@@ -43,6 +43,6 @@ class Login extends Controller
     public function logout()
     {
         Session::delete('is_login');
-        return redirect(url('admin/Login/loginForm'));
+        return redirect('admin/Login/loginForm');
     }
 }

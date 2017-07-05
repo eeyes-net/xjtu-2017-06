@@ -16,7 +16,7 @@ class Index extends Controller
     protected function mustLogin()
     {
         if (!Session::get('is_login')) {
-            throw new HttpResponseException(redirect(url('admin/Login/loginForm')));
+            throw new HttpResponseException(redirect('admin/Login/loginForm'));
         }
     }
 
