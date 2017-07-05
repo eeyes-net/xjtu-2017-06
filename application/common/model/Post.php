@@ -8,7 +8,7 @@ namespace app\common\model;
  * @package app\common\model
  *
  * @property Type $type readonly 文章类型
- * @property string $id readonly ID
+ * @property string $id readonly 文章id
  * @property string $name readonly 文章名称
  * @property string $content 文章内容
  */
@@ -26,6 +26,11 @@ class Post
         $this->data = $data;
     }
 
+    /**
+     * 获取 config('data.posts')
+     *
+     * @return array
+     */
     public static function getPostsData()
     {
         static $data = null;
@@ -35,6 +40,11 @@ class Post
         return $data;
     }
 
+    /**
+     * 获取 config('data.college_ids')
+     *
+     * @return array
+     */
     public static function getCollegeIds()
     {
         static $college_ids = null;
@@ -44,6 +54,13 @@ class Post
         return $college_ids;
     }
 
+    /**
+     * 获取指定类型的所有文章
+     *
+     * @param string $type_id 文章类型id
+     *
+     * @return array
+     */
     public static function allOfType($type_id)
     {
         $type = Type::get($type_id);
@@ -57,6 +74,13 @@ class Post
         return $result;
     }
 
+    /**
+     * 获取指定类型所有书院文章
+     *
+     * @param string $type_id 文章类型id
+     *
+     * @return array
+     */
     public static function allCollegeOfType($type_id)
     {
         $type = Type::get($type_id);
@@ -72,6 +96,14 @@ class Post
         return $result;
     }
 
+    /**
+     * 获取指定类型、指定id文章
+     *
+     * @param string $type_id 文章类型id
+     * @param string $id 文章id
+     *
+     * @return null|static
+     */
     public static function get($type_id, $id)
     {
         $type = Type::get($type_id);
@@ -84,11 +116,21 @@ class Post
         }
     }
 
+    /**
+     * 获取本地文件路径
+     *
+     * @return string
+     */
     protected function getFilePath()
     {
         return config('data.html_path') . DS . $this->type->id . DS . $this->id . '.html';
     }
 
+    /**
+     * 获取内容（惰性加载）
+     *
+     * @return bool|string
+     */
     public function getContent()
     {
         if (is_null($this->content)) {
@@ -98,11 +140,21 @@ class Post
         return $this->content;
     }
 
+    /**
+     * 保存文章
+     *
+     * @return bool|int
+     */
     public function save()
     {
         return file_put_contents_auto_mkdir($this->getFilePath(), $this->content);
     }
 
+    /**
+     * 是否是书院
+     *
+     * @return bool
+     */
     public function isCollege()
     {
         return in_array($this->id, static::getCollegeIds());
