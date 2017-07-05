@@ -86,7 +86,7 @@ class Post
 
     protected function getFilePath()
     {
-        return config('html.path') . DS . $this->type->id . DS . $this->id . '.html';
+        return config('data.html_path') . DS . $this->type->id . DS . $this->id . '.html';
     }
 
     public function getContent()

@@ -20,8 +20,11 @@
         hideSidebar();
     });
     $(document).pjax('a[data-pjax]', '.main', {});
-    $(document).on('pjax:clicked', function (data) {
+    $(document).on('pjax:clicked', function () {
         hideSidebar();
+    });
+    $(document).on('pjax:end', function () {
+        $("img[data-original]").lazyload();
     });
 
     /* only for index */

@@ -24,10 +24,15 @@ class Index
         if (!$post) {
             return response('', 404);
         }
-        return $this->viewPjaxOrRead(compact('post'));
+        $content = $post->content;
+        $content = preg_replace_callback('/<img.*?>/', function ($matches) {
+            return preg_replace('/ src="(.+?)"/', ' data-original="$1"', $matches[0]);
+        }, $content);
+        return $this->viewPjaxOrRead(compact('content'));
     }
 
-    public function viewPjaxOrRead($data) {
+    public function viewPjaxOrRead($data)
+    {
         if (request()->isPjax()) {
             return view('pjax', $data);
         }
