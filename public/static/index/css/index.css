@@ -197,6 +197,27 @@ a {
     height: 100%;
 }
 
+/* sidebar-footer bgm */
+
+.bgm {
+    position: absolute;
+    width: 5%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.bgm-button {
+    position: absolute;
+    right: 100%;
+    bottom: 2vh;
+    height: 4vh;
+}
+
+.bgm-button-img {
+    height: 100%;
+}
+
 /* qrcode */
 
 .qrcode-container {

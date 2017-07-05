@@ -11,7 +11,7 @@
                     <h2 class="main-content-college-title">{$college_post->name}</h2>
                     <p class="main-content-college-text">{$college_post->content|html_to_text|substr=0,100|htmlentities}</p>
                 </a>
-                <a class="main-content-college-link" href="{$college_post->link|htmlentities}">官网链接：{$college_post->link|htmlentities}</a>
+                <a class="main-content-college-link" target="_blank" href="{$college_post->link|htmlentities}">官网链接：{$college_post->link|htmlentities}</a>
             </div>
         </div>
     </li>
