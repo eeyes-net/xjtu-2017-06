@@ -15,7 +15,7 @@ class Index
             ]);
             return redirect(url('mobile/Index/index'));
         }
-        return $this->read('introduction');
+        return $this->read(array_keys(config('data.menu_index'))[0]);
     }
 
     public function read($id)

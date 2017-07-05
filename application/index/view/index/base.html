@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1200">
+    <title>{block name="title"}起航交大{/block}</title>
+    <meta name="description" content="起航交大是面向大一新生的全方位介绍西安交通大学以及报道有关事项的网站，关于交大，你想知道的，都在这里" />
+    <link rel="stylesheet" href="/static/common/css/eeyes_common.css">
+    <link rel="stylesheet" href="/static/index/css/index.css">
+</head>
+<body>
+    <div class="main">
+        {block name="main"}{/block}
+    </div>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="xjtu-start-here-logo">
+                <a data-pjax href="/">
+                    <img src="/static/index/images/logo/xjtu-start-here.png" alt="起航交大logo" class="logo-img">
+                </a>
+            </div>
+        </div>
+        <div class="sidebar-body">
+            <ul class="menu-ul">
+                <?php $menu = config('data.menu_index'); ?>
+                {foreach ($menu as $id => $name)}
+                <li class="menu-li">
+                    <a data-pjax href="/{$id}.html"{if ($post->id === $id || ($id === 'colleges' && $post->isCollege()))} class="active"{/if}>{$name}</a>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <div class="eeyes-logo">
+                <a href="http://www.eeyes.net/">
+                    <img src="/static/index/images/logo/eeyes.png" alt="e瞳网logo">
+                </a>
+            </div>
+        </div>
+    </aside>
+    <aside class="qrcode-container">
+        <div class="qrcode">
+            <img class="qrcode-img" src="/static/index/images/qrcode/eeyes.png">
+            <p class="qrcode-text">西安交通大学e瞳网</p>
+        </div>
+        <div class="qrcode">
+            <img class="qrcode-img" src="/static/index/images/qrcode/xjsu.png">
+            <p class="qrcode-text">西安交通大学学生会</p>
+        </div>
+    </aside>
+    <footer class="footer">
+        <p class="footer-sponsor"><span>西安交通大学招生办</span> <span>西安交通大学学生会</span></p>
+        {include file="common@common/eeyes_common_footer" /}
+    </footer>
+    <script src="/static/dist/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/dist/js/jquery.pjax.min.js"></script>
+    <script src="/static/index/js/index.js"></script>
+</body>
+</html>
