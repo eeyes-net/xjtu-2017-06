@@ -7,8 +7,8 @@ Route::group('admin', function () {
     Route::post('login', 'admin/Login/login');
     Route::any('logout', 'admin/Login/logout');
     Route::get('/', 'admin/Index/index');
-    Route::get(':type/:name', 'admin/Index/edit');
-    Route::put(':type/:name', 'admin/Index/update');
+    Route::get(':type_id/:id', 'admin/Index/edit');
+    Route::put(':type_id/:id', 'admin/Index/update');
 });
 
 Route::group('mobile', function () {

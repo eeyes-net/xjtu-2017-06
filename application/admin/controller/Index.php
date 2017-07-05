@@ -2,6 +2,7 @@
 
 namespace app\admin\controller;
 
+use app\common\model\Post;
 use think\Controller;
 use think\exception\HttpResponseException;
 use think\Session;
@@ -24,25 +25,23 @@ class Index extends Controller
         return view('base');
     }
 
-    public function edit($type, $name)
+    public function edit($type_id, $id)
     {
-        if (!is_html_available($type, $name)) {
+        $post = Post::get($type_id, $id);
+        if (!$post) {
             $this->error('文件不存在');
         }
-        $file = get_html_path($type, $name);
-        $content = file_exists($file) ? file_get_contents($file) : '';
-        $title = ($type === 'mobile') ? '移动端' : 'PC端' . ' / ' . config('html.list')[$type][$name];
-        return view('', compact('title', 'content', 'type', 'name'));
+        return view('', compact('post'));
     }
 
-    public function update($type, $name)
+    public function update($type_id, $id)
     {
-        if (!is_html_available($type, $name)) {
+        $post = Post::get($type_id, $id);
+        if (!$post) {
             $this->error('文件不存在');
         }
-        $file = get_html_path($type, $name);
-        $content = request()->put('content');
-        file_put_contents($file, $content);
+        $post->content = request()->put('content');
+        $post->save();
         Session::flash('save_ok', '文件保存成功');
         return redirect($_SERVER['HTTP_REFERER']);
     }

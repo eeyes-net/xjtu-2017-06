@@ -11,23 +11,21 @@
         <div class="column is-2">
             <div class="box">
                 <aside class="menu">
-                    <?php $list = config('html.list'); ?>
+                    <?php $types = \app\common\model\Type::all(); ?>
+                    {foreach ($types as $type)}
                     <p class="menu-label">
-                        PC端
+                        {$type->name}
                     </p>
                     <ul class="menu-list">
-                        {foreach ($list['index'] as $name1 => $text)}
-                        <li><a href="{:url('admin/Index/edit', ['type' => 'index', 'name' => $name1])}"{if (isset($name) && $type === 'index' && $name1 === $name)} class="is-active"{/if}>{$text}</a></li>
+                        {foreach ($type->posts as $post1)}
+                        <li><a href="{:url('admin/Index/edit', ['type_id' => $type->id, 'id' => $post1->id])}"
+                               {if (isset($post)
+                               && $post->type->id === $type->id
+                            && $post->id === $post1->id)} class="is-active"{/if}
+                            >{$post1->name}</a></li>
                         {/foreach}
                     </ul>
-                    <p class="menu-label">
-                        移动端
-                    </p>
-                    <ul class="menu-list">
-                        {foreach ($list['mobile'] as $name1 => $text)}
-                        <li><a href="{:url('admin/Index/edit', ['type' => 'mobile', 'name' => $name1])}"{if (isset($name) && $type === 'mobile' && $name1 === $name)} class="is-active"{/if}>{$text}</a></li>
-                        {/foreach}
-                    </ul>
+                    {/foreach}
                     <p class="menu-label">
                         账户操作
                     </p>
