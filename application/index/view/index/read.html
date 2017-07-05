@@ -15,14 +15,17 @@
     <aside class="sidebar">
         <div class="sidebar-header">
             <div class="xjtu-start-here-logo">
-                <img src="/static/index/images/logo/xjtu-start-here.png" alt="起航交大logo" class="logo-img">
+                <a data-pjax href="/">
+                    <img src="/static/index/images/logo/xjtu-start-here.png" alt="起航交大logo" class="logo-img">
+                </a>
             </div>
         </div>
         <div class="sidebar-body">
             <ul class="menu-ul">
-                {foreach ( config('html.menu') as $name1 => $text)}
+                <?php $menu = config('data.menu_index'); ?>
+                {foreach ($menu as $id => $name)}
                 <li class="menu-li">
-                    <a data-pjax href="/{$name1}.html"{if ($name1 === $name || ($name1 === 'college' && in_array($name, array_merge(array_keys(config('html.colleges')), ['college']))))} class="active"{/if}>{$text}</a>
+                    <a data-pjax href="/{$id}.html"{if ($post->id === $id || ($id === 'colleges' && $post->isCollege()))} class="active"{/if}>{$name}</a>
                 </li>
                 {/foreach}
             </ul>

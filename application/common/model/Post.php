@@ -35,6 +35,15 @@ class Post
         return $data;
     }
 
+    public static function getCollegeIds()
+    {
+        static $college_ids = null;
+        if (is_null($college_ids)) {
+            $college_ids = config('data.college_ids');
+        }
+        return $college_ids;
+    }
+
     public static function allOfType($type_id)
     {
         $type = Type::get($type_id);
@@ -43,6 +52,21 @@ class Post
             $data = static::getPostsData()[$type_id];
             foreach ($data as $id => $datum) {
                 $result[] = new static($type, $id, $datum['name']);
+            }
+        }
+        return $result;
+    }
+
+    public static function allCollegeOfType($type_id)
+    {
+        $type = Type::get($type_id);
+        $result = [];
+        if ($type) {
+            $data = static::getPostsData()[$type_id];
+            foreach (static::getCollegeIds() as $id) {
+                if (array_key_exists($id, $data)) {
+                    $result[] = new static($type, $id, $data[$id]['name']);
+                }
             }
         }
         return $result;
@@ -77,6 +101,11 @@ class Post
     public function save()
     {
         return file_put_contents($this->getFilePath(), $this->content);
+    }
+
+    public function isCollege()
+    {
+        return in_array($this->id, static::getCollegeIds());
     }
 
     public function __get($name)

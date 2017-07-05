@@ -43,6 +43,35 @@ return [
             'about' => ['name' => '关于e瞳'],
         ],
     ],
+    'college_ids' => [
+        'pengkang',
+        'nanyang',
+        'zhongying',
+        'lizhi',
+        'chongshi',
+        'wenzhi',
+        'qide',
+        'zonglian',
+    ],
+    'menu' => [
+        'index' => [
+            'introduction' => '交大介绍',
+            'campus' => '魅力交大',
+            'colleges' => '八大书院',
+            'transport' => '交通路线',
+            'register' => '报道那天',
+            'lifestyle' => '消费主张',
+        ],
+        'mobile' => [
+            'introduction' => '交大介绍',
+            'campus' => '魅力交大',
+            'colleges' => '八大书院',
+            'transport' => '交通路线',
+            'register' => '报道那天',
+            'lifestyle' => '消费主张',
+        ],
+    ],
+
     'list' => [
         'index' => [
             'introduction' => '交大介绍',
@@ -77,14 +106,14 @@ return [
             'about' => '关于e瞳',
         ],
     ],
-    'menu' => [
-        'introduction' => '交大介绍',
-        'campus' => '魅力交大',
-        'college' => '八大书院',
-        'transport' => '交通路线',
-        'register' => '报道那天',
-        'lifestyle' => '消费主张',
-    ],
+    // 'menu' => [
+    //     'introduction' => '交大介绍',
+    //     'campus' => '魅力交大',
+    //     'colleges' => '八大书院',
+    //     'transport' => '交通路线',
+    //     'register' => '报道那天',
+    //     'lifestyle' => '消费主张',
+    // ],
     'colleges' => [
         'pengkang' => '彭康',
         'nanyang' => '南洋',

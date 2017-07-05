@@ -17,5 +17,6 @@ Route::group('mobile', function () {
     Route::get(':name', 'mobile/Index/read');
 });
 
+Route::get('colleges', 'index/Index/colleges');
 Route::get('/', 'index/Index/index');
-Route::get(':name', 'index/Index/read');
+Route::get(':id', 'index/Index/read');

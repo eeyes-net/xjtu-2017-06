@@ -1,10 +1,11 @@
 <ul class="main-header-colleges-ul">
-    {foreach ( config('html.colleges') as $name1 => $text)}
+    <?php $college_posts = \app\common\model\Post::allCollegeOfType($post->type->id); ?>
+    {foreach ($college_posts as $college_post)}
     <li class="main-header-colleges-li">
-        <a data-pjax href="/{$name1}.html">
-            <div class="main-header-college{if ($name1 === $name)} active{/if}">
-                <img class="main-header-college-image" src="/static/index/images/college-logo/{$name1}.png" alt="{$text}书院logo">
-                <p class="main-header-college-text">{$text}书院</p>
+        <a data-pjax href="/{$college_post->id}.html">
+            <div class="main-header-college{if ($post->id === $college_post->id)} active{/if}">
+                <img class="main-header-college-image" src="/static/index/images/college-logo/{$college_post->id}.png" alt="{$college_post->name}logo">
+                <p class="main-header-college-text">{$college_post->name}</p>
             </div>
         </a>
     </li>
