@@ -294,3 +294,23 @@ body {
 .main-content-college-link:visited {
     color: #9f6592;
 }
+
+/* main-content-index */
+
+.main-content-index {
+    margin: 0 -1em;
+}
+
+.main-content-index-help {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+}

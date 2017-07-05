@@ -1,5 +1,5 @@
 <ul class="main-header-colleges-ul">
-    <?php $college_posts = \app\common\model\Post::allCollegeOfType($post->type->id); ?>
+    <?php $college_posts = \app\common\model\Post::allCollegeOfType('index'); ?>
     {foreach ($college_posts as $college_post)}
     <li class="main-header-colleges-li">
         <a data-pjax href="/{$college_post->id}.html">

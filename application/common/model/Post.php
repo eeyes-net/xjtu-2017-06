@@ -16,14 +16,14 @@ class Post
 {
     protected $type = null;
     protected $id = null;
-    protected $name = null;
+    protected $data = null;
     protected $content = null;
 
-    protected function __construct($type, $id, $name)
+    protected function __construct($type, $id, $data)
     {
         $this->type = $type;
         $this->id = $id;
-        $this->name = $name;
+        $this->data = $data;
     }
 
     public static function getPostsData()
@@ -51,7 +51,7 @@ class Post
         if ($type) {
             $data = static::getPostsData()[$type_id];
             foreach ($data as $id => $datum) {
-                $result[] = new static($type, $id, $datum['name']);
+                $result[] = new static($type, $id, $datum);
             }
         }
         return $result;
@@ -65,7 +65,7 @@ class Post
             $data = static::getPostsData()[$type_id];
             foreach (static::getCollegeIds() as $id) {
                 if (array_key_exists($id, $data)) {
-                    $result[] = new static($type, $id, $data[$id]['name']);
+                    $result[] = new static($type, $id, $data[$id]);
                 }
             }
         }
@@ -80,7 +80,7 @@ class Post
         }
         $data = static::getPostsData()[$type_id];
         if (array_key_exists($id, $data)) {
-            return new static($type, $id, $data[$id]['name']);
+            return new static($type, $id, $data[$id]);
         }
     }
 
@@ -113,13 +113,15 @@ class Post
         switch ($name) {
             case 'type':
             case 'id':
-            case 'name':
                 return $this->$name;
                 break;
             case 'content':
                 return $this->getContent();
                 break;
             default:
+                if (isset($this->data[$name])) {
+                    return $this->data[$name];
+                }
                 throw new \Exception("Undefined property: Post::$name");
                 break;
         }
@@ -130,10 +132,10 @@ class Post
         switch ($name) {
             case 'type':
             case 'id':
-            case 'name':
+            case 'data':
                 throw new \Exception("Change readonly property: " . static::class . "::$name");
                 break;
-            case'content':
+            case 'content':
                 $this->content = $value;
                 break;
             default:

@@ -25,7 +25,7 @@
                 <?php $menu = config('data.menu_index'); ?>
                 {foreach ($menu as $id => $name)}
                 <li class="menu-li">
-                    <a data-pjax href="/{$id}.html"{if ($post->id === $id || ($id === 'colleges' && $post->isCollege()))} class="active"{/if}>{$name}</a>
+                    <a data-pjax href="{:url('index/Index/read', ['id' => $id])}"{if ($post->id === $id || ($id === 'colleges' && $post->isCollege()))} class="active"{/if}>{$name}</a>
                 </li>
                 {/foreach}
             </ul>

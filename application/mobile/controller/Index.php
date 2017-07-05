@@ -2,28 +2,35 @@
 
 namespace app\mobile\controller;
 
+use app\common\model\Post;
+
 class Index
 {
     public function index()
     {
-        return view();
+        $content = view()->getContent();
+        return $this->viewPjaxOrRead(compact('content'));
     }
 
-    public function colleges() {
-        $content = view('mobile@index/colleges')->getContent();
-        return view('read', compact('name', 'content'));
-    }
-
-    public function read($name)
+    public function colleges()
     {
-        if (!is_html_available('mobile', $name)) {
+        $content = view()->getContent();
+        return $this->viewPjaxOrRead(compact('content'));
+    }
+
+    public function read($id)
+    {
+        $post = Post::get('mobile', $id);
+        if (!$post) {
             return response('', 404);
         }
-        $file = get_html_path('mobile', $name);
-        $content = file_exists($file) ? file_get_contents($file) : '';
+        return $this->viewPjaxOrRead(compact('post'));
+    }
+
+    public function viewPjaxOrRead($data) {
         if (request()->isPjax()) {
-            return $content;
+            return view('pjax', $data);
         }
-        return view('read', compact('name', 'content'));
+        return view('read', $data);
     }
 }
