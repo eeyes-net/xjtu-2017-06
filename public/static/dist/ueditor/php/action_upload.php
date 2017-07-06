@@ -1,4 +1,7 @@
 <?php
+if (count(get_included_files()) <= 1) {
+    exit;
+}
 /**
  * 上传附件和上传视频
  * User: Jinqn

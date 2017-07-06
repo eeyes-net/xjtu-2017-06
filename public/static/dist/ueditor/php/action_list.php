@@ -1,4 +1,7 @@
 <?php
+if (count(get_included_files()) <= 1) {
+    exit;
+}
 /**
  * 获取已上传的文件列表
  * User: Jinqn

@@ -1,4 +1,7 @@
 <?php
+if (count(get_included_files()) <= 1) {
+    exit;
+}
 /**
  * 抓取远程图片
  * User: Jinqn
