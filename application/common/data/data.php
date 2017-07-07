@@ -23,7 +23,7 @@ return [
             'zonglian' => ['name' => '宗濂书院'],
             'transport' => ['name' => '交通路线'],
             'register' => ['name' => '报道那天'],
-            'lifestyle' => ['name' => '消费主张'],
+            'lifestyle' => ['name' => '吃喝玩乐'],
             'about' => ['name' => '关于e瞳'],
         ],
         'mobile' => [
@@ -39,7 +39,7 @@ return [
             'zonglian' => ['name' => '宗濂书院', 'link' => 'http://zlsy.xjtu.edu.cn/'],
             'transport' => ['name' => '交通路线'],
             'register' => ['name' => '报道那天'],
-            'lifestyle' => ['name' => '消费主张'],
+            'lifestyle' => ['name' => '吃喝玩乐'],
             'about' => ['name' => '关于e瞳'],
         ],
     ],
@@ -60,7 +60,8 @@ return [
             'colleges' => '八大书院',
             'transport' => '交通路线',
             'register' => '报道那天',
-            'lifestyle' => '消费主张',
+            'lifestyle' => '吃喝玩乐',
+            'about' => '关于e瞳',
         ],
         'mobile' => [
             'introduction' => '交大介绍',
@@ -68,7 +69,8 @@ return [
             'colleges' => '八大书院',
             'transport' => '交通路线',
             'register' => '报道那天',
-            'lifestyle' => '消费主张',
+            'lifestyle' => '吃喝玩乐',
+            'about' => '关于e瞳',
         ],
     ],
 ];
