@@ -232,6 +232,9 @@ body {
 
 .main img {
     max-width: 100% !important;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
 /* main-content-colleges */
@@ -278,7 +281,7 @@ body {
 }
 
 .main-content-college-text {
-    padding: .5em 0;
+    margin: .5em 0;
     height: 3em;
     color: #6c8493;
     font-size: .75em;
