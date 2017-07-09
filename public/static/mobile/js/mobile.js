@@ -27,9 +27,13 @@
     $(document).on('pjax:clicked', function () {
         hideSidebar();
     });
-    $(document).on('pjax:end', function () {
-        $("img[data-original]").lazyload();
-    });
+
+    function lazyload() {
+        $('img[data-original]').lazyload();
+    }
+
+    $(document).on('pjax:end', lazyload);
+    lazyload();
 
     $("body").swipe({
         swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
