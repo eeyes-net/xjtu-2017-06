@@ -231,10 +231,10 @@ body {
 }
 
 .main img {
-    max-width: 100% !important;
-    text-align: center;
     display: block;
     margin: 0 auto;
+    max-width: 100% !important;
+    text-align: center;
 }
 
 /* main-content-colleges */
