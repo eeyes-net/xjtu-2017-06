@@ -227,10 +227,14 @@ body {
 /* main */
 
 .main {
-    padding: 50px 1em 0;
+    padding-top: 50px;
 }
 
-.main img {
+.main-content {
+    padding: 1em 1em 2em;
+}
+
+.main-content img {
     display: block;
     margin: 0 auto;
     max-width: 100% !important;
@@ -238,10 +242,6 @@ body {
 }
 
 /* main-content-colleges */
-
-.main-content-colleges-ul {
-    margin: 0 -1em;
-}
 
 .main-content-college-li {
     margin-top: .5em;
@@ -303,10 +303,6 @@ body {
 }
 
 /* main-content-index */
-
-.main-content-index {
-    margin: 0 -1em;
-}
 
 .main-content-index-help {
     position: fixed;
