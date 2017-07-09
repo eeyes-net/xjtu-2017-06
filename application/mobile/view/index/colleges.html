@@ -3,9 +3,11 @@
     {foreach ($college_posts as $college_post)}
     <li class="main-content-college-li">
         <div class="main-content-college">
-            <div class="main-content-college-logo">
-                <img class="main-content-college-logo-img" src="/static/mobile/images/college-logo/{$college_post->id}.png" alt="{$college_post->name}logo">
-            </div>
+            <a data-pjax href="{:url('mobile/Index/read', ['id' => $college_post->id])}">
+                <div class="main-content-college-logo">
+                    <img class="main-content-college-logo-img" src="/static/mobile/images/college-logo/{$college_post->id}.png" alt="{$college_post->name}logo">
+                </div>
+            </a>
             <div class="main-content-college-body">
                 <a data-pjax href="{:url('mobile/Index/read', ['id' => $college_post->id])}">
                     <h2 class="main-content-college-title">{$college_post->name}</h2>

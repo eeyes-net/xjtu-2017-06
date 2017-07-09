@@ -5,7 +5,7 @@
         $sidebar.show();
         setTimeout(function () {
             $sidebar.addClass('active');
-        }, 0);
+        }, 100);
     }
 
     function hideSidebar() {
@@ -36,15 +36,18 @@
     lazyload();
 
     $("body").swipe({
-        swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-            var $sidebar = $('.sidebar');
-            if (direction === 'left' && !$sidebar.hasClass('active')) {
+        swipeLeft: function () {
+            if (!$('.sidebar').hasClass('active')) {
                 showSidebar();
-            } else if (direction === 'right' && $sidebar.hasClass('active')) {
+            }
+        },
+        swipeRight: function () {
+            if ($('.sidebar').hasClass('active')) {
                 hideSidebar();
             }
         },
-        threshold: 50,
+        allowPageScroll: "vertical",
+        threshold: 100,
         fingers: 'all'
     });
 
