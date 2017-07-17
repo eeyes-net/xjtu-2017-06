@@ -20,17 +20,4 @@
             $(data.target).addClass('active');
         }
     });
-
-    // 背景音乐
-    $('.bgm-button').click(function () {
-        var audio = $('.bgm-audio')[0];
-        var $buttonImg = $('.bgm-button-img');
-        if (audio.paused) {
-            audio.play();
-            $buttonImg.attr('src', $buttonImg.attr('data-src-on'));
-        } else {
-            audio.pause();
-            $buttonImg.attr('src', $buttonImg.attr('data-src-off'));
-        }
-    })
 })(jQuery);

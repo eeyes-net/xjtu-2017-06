@@ -53,17 +53,8 @@
 
     /* only for index */
     (function () {
-        var isHideHelp = false;
         var listener = function () {
             if ($('.main-content-index').length) {
-                if (isHideHelp) {
-                    $('.main-content-index-help').hide();
-                } else {
-                    $('.main-content-index-help').click(function () {
-                        $(this).hide();
-                        isHideHelp = true;
-                    });
-                }
                 $('.main-content-index-swiper').height(window.innerHeight - $('.header').height());
                 var swiper = new Swiper('.main-content-index-swiper', {
                     pagination: '.main-content-index-swiper .swiper-pagination',
