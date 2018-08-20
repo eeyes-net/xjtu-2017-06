@@ -2,7 +2,7 @@
     <?php $college_posts = \app\common\model\Post::allCollegeOfType('index'); ?>
     {foreach ($college_posts as $college_post)}
     <li class="main-header-colleges-li">
-        <a data-pjax href="/{$college_post->id}.html">
+        <a data-pjax href="{:url('index/Index/read', ['id' => $college_post->id])}">
             <div class="main-header-college{if ($post->id === $college_post->id)} active{/if}">
                 <img class="main-header-college-image" src="/static/index/images/college-logo/{$college_post->id}.png" alt="{$college_post->name}logo">
                 <p class="main-header-college-text">{$college_post->name}</p>

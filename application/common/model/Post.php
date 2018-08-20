@@ -11,6 +11,7 @@ namespace app\common\model;
  * @property string $id readonly 文章id
  * @property string $name readonly 文章名称
  * @property string $content 文章内容
+ * @property string $title 文章标题
  */
 class Post
 {
@@ -160,6 +161,11 @@ class Post
         return in_array($this->id, static::getCollegeIds());
     }
 
+    public function getTitle()
+    {
+        return $this->data['name'];
+    }
+
     public function __get($name)
     {
         switch ($name) {
@@ -169,6 +175,9 @@ class Post
                 break;
             case 'content':
                 return $this->getContent();
+                break;
+            case 'title':
+                return $this->getTitle();
                 break;
             default:
                 if (isset($this->data[$name])) {
@@ -185,6 +194,7 @@ class Post
             case 'type':
             case 'id':
             case 'data':
+            case 'title':
                 throw new \Exception("Change readonly property: " . static::class . "::$name");
                 break;
             case 'content':

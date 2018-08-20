@@ -18,20 +18,27 @@ class Index
         return $this->read(array_keys(config('data.menu_index'))[0]);
     }
 
+    public function colleges()
+    {
+        return $this->read(Post::allCollegeOfType('index')[0]->id);
+    }
+
     public function read($id)
     {
         $post = Post::get('index', $id);
         if (!$post) {
             return response('', 404);
         }
-        if (request()->isPjax()) {
-            return view('pjax', compact('post'));
-        }
-        return view('read', compact('post'));
+        $title = $post->title;
+        return $this->viewPjaxOrRead(compact('post', 'title'));
     }
 
-    public function colleges()
+    public function viewPjaxOrRead($data, $is_raw = false)
     {
-        return $this->read(Post::allCollegeOfType('index')[0]->id);
+        $data['is_raw'] = $is_raw;
+        if (request()->isPjax()) {
+            return view('pjax', $data);
+        }
+        return view('read', $data);
     }
 }

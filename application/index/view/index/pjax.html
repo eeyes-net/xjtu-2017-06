@@ -1,10 +1,2 @@
-<div class="main-header">
-    {if ($post->isCollege())}
-    {include file="index/headers/colleges" /}
-    {else /}
-    {include file="index/headers/banner" /}
-    {/if}
-</div>
-<main class="main-content">
-    {$post->content}
-</main>
+<title>{block name="title"}{notempty name="title"}{$title} - {/notempty}起航交大{/block}</title>
+{include file="index/post" /}

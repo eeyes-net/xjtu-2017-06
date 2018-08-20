@@ -1,7 +1,2 @@
-{if ($is_raw)}
-{$content}
-{else /}
-<div class="main-content">
-    {$content}
-</div>
-{/if}
+<title>{block name="title"}{notempty name="title"}{$title} - {/notempty}起航交大{/block}</title>
+{include file="index/post" /}

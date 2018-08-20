@@ -13,6 +13,7 @@ return [
         'index' => [
             'introduction' => ['name' => '交大介绍'],
             'campus' => ['name' => '交大生活'],
+            'qianxuesen' => ['name' => '钱学森学院'],
             'pengkang' => ['name' => '彭康书院'],
             'nanyang' => ['name' => '南洋书院'],
             'zhongying' => ['name' => '仲英书院'],
@@ -29,6 +30,7 @@ return [
         'mobile' => [
             'introduction' => ['name' => '交大介绍'],
             'campus' => ['name' => '交大生活'],
+            'qianxuesen' => ['name' => '钱学森学院', 'link' => 'http://bjb.xjtu.edu.cn/'],
             'pengkang' => ['name' => '彭康书院', 'link' => 'http://pksy.xjtu.edu.cn/'],
             'nanyang' => ['name' => '南洋书院', 'link' => 'http://nanyang.xjtu.edu.cn/'],
             'zhongying' => ['name' => '仲英书院', 'link' => 'http://cy.xjtu.edu.cn/'],
@@ -44,6 +46,7 @@ return [
         ],
     ],
     'college_ids' => [
+        'qianxuesen',
         'pengkang',
         'nanyang',
         'zhongying',
@@ -56,7 +59,7 @@ return [
     'menu' => [
         'index' => [
             'introduction' => '交大介绍',
-            'colleges' => '八大书院',
+            'colleges' => '九大书院',
             'transport' => '交通路线',
             'register' => '报名流程',
             'campus' => '交大生活',
@@ -65,7 +68,7 @@ return [
         ],
         'mobile' => [
             'introduction' => '交大介绍',
-            'colleges' => '八大书院',
+            'colleges' => '九大书院',
             'transport' => '交通路线',
             'register' => '报名流程',
             'campus' => '交大生活',

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200">
-    <title>{block name="title"}起航交大{/block}</title>
+    <title>{block name="title"}{notempty name="title"}{$title} - {/notempty}起航交大{/block}</title>
     <meta name="description" content="起航交大是面向大一新生的全方位介绍西安交通大学以及报道有关事项的网站，关于交大，你想知道的，都在这里" />
     <link rel="stylesheet" href="/static/common/css/eeyes_common.css">
     <link rel="stylesheet" href="/static/index/css/index.css">

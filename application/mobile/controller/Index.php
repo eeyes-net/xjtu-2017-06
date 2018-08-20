@@ -15,7 +15,8 @@ class Index
     public function colleges()
     {
         $content = view()->getContent();
-        return $this->viewPjaxOrRead(compact('content'), true);
+        $title = config('data.menu_mobile')['colleges'];
+        return $this->viewPjaxOrRead(compact('content', 'title'), true);
     }
 
     public function read($id)
@@ -28,7 +29,8 @@ class Index
         $content = preg_replace_callback('/<img.*?>/', function ($matches) {
             return preg_replace('/ src="(.+?)"/', ' data-original="$1"', $matches[0]);
         }, $content);
-        return $this->viewPjaxOrRead(compact('content'), false);
+        $title = $post->title;
+        return $this->viewPjaxOrRead(compact('content', 'title'));
     }
 
     public function viewPjaxOrRead($data, $is_raw = false)
